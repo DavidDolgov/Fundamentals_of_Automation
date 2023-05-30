@@ -1,7 +1,8 @@
 package ru.netology.service;
 
 import org.junit.Assert;
-import org.junit.Test;
+// import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 
 class CashbackHackServiceTest {
@@ -9,7 +10,7 @@ class CashbackHackServiceTest {
     CashbackHackService service = new CashbackHackService();
 
     @Test
-    void remainWhenPurchaseIsLessThanZero() {
+    public void remainWhenPurchaseIsLessThanZero() {
         int amount = -100;
         int expected = 1100;
         int actual = service.remain(amount);
@@ -18,7 +19,7 @@ class CashbackHackServiceTest {
     }
 
     @Test
-    void remainWhenPurchaseIsZero() {
+    public void remainWhenPurchaseIsZero() {
         int amount = 0;
         int expected = 1000;
         int actual = service.remain(amount);
@@ -27,7 +28,7 @@ class CashbackHackServiceTest {
     }
 
     @Test
-    void remainWhenPurchaseIsGreaterThanZero() {
+    public void remainWhenPurchaseIsGreaterThanZero() {
         int amount = 100;
         int expected = 900;
         int actual = service.remain(amount);
@@ -36,7 +37,7 @@ class CashbackHackServiceTest {
     }
 
     @Test
-    void remainWhenIsThePurchaseNearTheBonusBoundary() {
+    public void remainWhenIsThePurchaseNearTheBonusBoundary() {
         int amount = 900;
         int expected = 100;
         int actual = service.remain(amount);
@@ -45,7 +46,7 @@ class CashbackHackServiceTest {
     }
 
     @Test
-    void remainWhenThePurchaseIsMoreThanBonusBoundary() {
+    public void remainWhenThePurchaseIsMoreThanBonusBoundary() {
         int amount = 1000;
         int expected = 0;
         int actual = service.remain(amount);
@@ -54,7 +55,7 @@ class CashbackHackServiceTest {
     }
 
     @Test
-    void remainWhenThePurchaseIsEqualBonusBoundary() {
+    public void remainWhenThePurchaseIsEqualBonusBoundary() {
         int amount = 1100;
         int expected = 900;
         int actual = service.remain(amount);
