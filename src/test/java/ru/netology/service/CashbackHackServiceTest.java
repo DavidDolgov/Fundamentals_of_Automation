@@ -1,9 +1,9 @@
 package ru.netology.service;
 
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import org.testng.Assert;
+import org.testng.AssertJUnit;
+import org.testng.annotations.Test;
 
 class CashbackHackServiceTest {
 
@@ -15,51 +15,51 @@ class CashbackHackServiceTest {
         int expected = 1100;
         int actual = service.remain(amount);
 
-        Assertions.assertEquals(expected, actual);
+        Assert.assertEquals(actual, expected);
     }
 
     @Test
-    void remainWhenPurchaseIsZero() {
+    public void remainWhenPurchaseIsZero() {
         int amount = 0;
         int expected = 1000;
         int actual = service.remain(amount);
 
-        Assertions.assertEquals(expected, actual);
+        AssertJUnit.assertEquals(actual, expected);
     }
 
     @Test
-    void remainWhenPurchaseIsGreaterThanZero() {
+    public void remainWhenPurchaseIsGreaterThanZero() {
         int amount = 100;
         int expected = 900;
         int actual = service.remain(amount);
 
-        Assertions.assertEquals(expected, actual);
+        AssertJUnit.assertEquals(actual, expected);
     }
 
     @Test
-    void remainWhenIsThePurchaseNearTheBonusBoundary() {
+    public void remainWhenIsThePurchaseNearTheBonusBoundary() {
         int amount = 900;
         int expected = 100;
         int actual = service.remain(amount);
 
-        Assertions.assertEquals(expected, actual);
+        AssertJUnit.assertEquals(actual, expected);
     }
 
     @Test
-    void remainWhenThePurchaseIsMoreThanBonusBoundary() {
+    public void remainWhenThePurchaseIsMoreThanBonusBoundary() {
         int amount = 1000;
         int expected = 0;
         int actual = service.remain(amount);
 
-        Assertions.assertEquals(expected, actual);
+        AssertJUnit.assertEquals(actual, expected);
     }
 
     @Test
-    void remainWhenThePurchaseIsEqualBonusBoundary() {
+    public void remainWhenThePurchaseIsEqualBonusBoundary() {
         int amount = 1100;
         int expected = 900;
         int actual = service.remain(amount);
 
-        Assertions.assertEquals(expected, actual);
+        AssertJUnit.assertEquals(actual, expected);
     }
 }
